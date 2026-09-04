@@ -1,12 +1,15 @@
-# Attack Shark Mouse Battery
+# Attack Shark Battery KDE
 
 Tray icon for the battery of **Attack Shark wireless mice** on Linux — the ones
 that ship with the Xenta `1d57:fa60` 2.4 GHz receiver.
 
+Built for KDE Plasma on Wayland, and it works on any desktop with a
+StatusNotifierItem tray.
+
 ![icon styles](assets/styles.png)
 
-Written in PySide6 (Qt 6), so it registers as a native **StatusNotifierItem** —
-it works on Wayland without XWayland and without a legacy tray.
+Written in PySide6 (Qt 6), so the tray icon is a native **StatusNotifierItem**:
+no XWayland, no legacy system tray.
 
 ---
 
@@ -114,7 +117,7 @@ attackshark-tray`) to have it come back on its own.
 * **31 icon styles** — the mouse itself, the shark, and plain gauges
 * **45 animations**, any of them on any style, per event (charging, full, low,
   critical, idle, asleep)
-* **37 colour schemes**, including level-based, gradients and a custom picker
+* **42 colour schemes**, including level-based, gradients and a custom picker
 * **Icon size** independent of the panel's cell, glow, line weight, and the
   percentage drawn inside the icon
 * **Thresholds** for low and critical, and how often a warning repeats
@@ -131,3 +134,7 @@ Everything applies as you change it, with a live preview of the real icon.
 * An Attack Shark mouse on the `1d57:fa60` receiver
 
 Nothing in this app touches the network.
+
+## Licence
+
+MIT — see [LICENSE](LICENSE).
