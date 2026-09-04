@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Attack Shark Mouse Battery
+GenericName=Mouse battery monitor
+Comment=Battery level of the Attack Shark wireless mouse, in the system tray
+Exec=attackshark-tray
+Icon=input-mouse
+Terminal=false
+Categories=Utility;System;
+Keywords=mouse;battery;wireless;tray;attack shark;
+StartupNotify=false

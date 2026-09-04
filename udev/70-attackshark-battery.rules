@@ -1,0 +1,15 @@
+# Attack Shark wireless mouse — battery reading over the receiver's vendor channel.
+#
+# Only interface 02 (the vendor one) is opened up. The keyboard and mouse
+# interfaces of the same receiver are deliberately left alone: granting the
+# whole dongle would let any process running as you read keystrokes via hidraw.
+#
+# The match is on the usb_interface's modalias rather than the obvious
+# ATTRS{idVendor} + ATTRS{bInterfaceNumber} pair, because those two attributes
+# live on DIFFERENT parent devices (usb_device and usb_interface) and udev
+# requires all ATTRS in one rule to match on the same device — the naive rule
+# silently matches nothing.
+#
+# The file must also sort BEFORE 73-seat-late.rules, or the uaccess tag arrives
+# after the builtin that applies the ACL and the device stays root-only.
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{modalias}=="usb:v1D57pFA60*in02", GROUP="input", MODE="0660", TAG+="uaccess"

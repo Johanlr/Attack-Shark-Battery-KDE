@@ -1,0 +1,13 @@
+[Unit]
+Description=Attack Shark mouse battery in the tray
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/attackshark-tray
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
