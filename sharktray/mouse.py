@@ -43,7 +43,11 @@ from pathlib import Path
 from PySide6.QtCore import QObject, QSocketNotifier, QTimer, Signal
 
 # quadro valido: 03 E5 40 <estado> <nivel>
-MAGIC = (0x03, 0xE5, 0x40)
+# Supported 2.4 GHz battery report headers
+MAGIC = {
+    (0x03, 0xE5, 0x40),  # Original models
+    (0x03, 0x24, 0x41),  # Attack Shark V6
+}
 FRAME_LEN = 5
 
 ST_BATTERY = 0x01
@@ -213,7 +217,7 @@ class MouseMonitor(QObject):
 
     def _accept(self, data: bytes) -> bool:
         """Guarda o quadro se for um quadro de bateria de verdade."""
-        if len(data) < FRAME_LEN or tuple(data[:3]) != MAGIC:
+        if len(data) < FRAME_LEN or tuple(data[:3]) not in MAGIC:
             return False            # inclui o `03 E5 01 00 00` do enlace piscando
         level = data[4]
         if level > 100:
