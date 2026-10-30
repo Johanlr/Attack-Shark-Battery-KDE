@@ -12,6 +12,28 @@ Written in PySide6 (Qt 6), so the tray icon is a native **StatusNotifierItem**:
 no XWayland, no legacy system tray.
 
 ---
+## Attack Shark V6 Support -  Linux / KDE / 2.4 GHz
+
+**Attack Shark V6 battery monitoring is now supported through a tested patch!**
+
+This fork includes support for reading the Attack Shark V6 battery percentage and charging status directly from its 2.4 GHz USB receiver on Linux, without Windows software or Bluetooth.
+
+**Tested configuration:**
+
+- Mouse: Attack Shark V6
+- Receiver: `1d57:fa60`
+- Operating system: Arch Linux
+- Desktop: KDE Plasma
+- Battery percentage and charging status successfully displayed in the system tray.
+
+The V6 uses a different battery report header (`03 24 41`) from the original supported models (`03 E5 40`). Both formats are supported by the patch.
+
+**Get the V6-compatible version:** [V6 support branch](https://github.com/johanlr/Attack-Shark-Battery-KDE/tree/add-attack-shark-v6)
+
+**Upstream contribution:** [Pull Request #2  Add Attack Shark V6 battery support](https://github.com/gabrielmf1998/Attack-Shark-Battery-KDE/pull/2)
+
+The V6 patch is awaiting upstream review. Until merged, use the V6 support branch rather than the default branch.
+
 
 ## Why this exists
 
